@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe-server
+  template:
+    metadata:
+      labels:
+        app: fe-server
+    spec:
+      containers:
+        - name: fe-server
+          image: public.ecr.aws/v2h8l1j0/nc-learners-frontend:1.0.0
+          ports:
+            - containerPort: 80
