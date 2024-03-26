@@ -1,4 +1,5 @@
 resource "aws_ecr_repository" "public_repo" {
-  name                 = var.repository_name
+  count = 2
+  name                 = var.repository_name[count.index]
   image_tag_mutability = "MUTABLE" 
 }

@@ -1,3 +1,4 @@
 variable "repository_name" {
-  type = string
+  type = list(string)
+  default= ["front-end","back-end"]
 }

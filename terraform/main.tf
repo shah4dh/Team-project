@@ -13,14 +13,3 @@ module "eks_cluster" {
     cluster_name    = var.cluster_name
 }
 
-module "frontend" {
-  source = "./modules/ecr"
- 
-  repository_name = var.frontend_repo_name
-}
-
-module "backend" {
-  source = "./modules/ecr"
- 
-  repository_name = var.backend_repo_name
-}
