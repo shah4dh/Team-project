@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: fe-server
+          # Update for the relevant ECR and image
           image: public.ecr.aws/v2h8l1j0/nc-learners-frontend:1.0.0
           ports:
             - containerPort: 80
