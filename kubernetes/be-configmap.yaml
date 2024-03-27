@@ -5,8 +5,8 @@ metadata:
   labels:
     app: be-server-config
 data:
-  # Update with RDS parameters 
-  DB_HOST: postgres.default.svc.cluster.local
-  DB_NAME: testdb2
+  # Update DB_HOST with url from output of applying database terraform
+  DB_HOST: project-db.c9g4mw82quix.eu-west-2.rds.amazonaws.com
+  DB_NAME: project
   DB_USER: postgres
-  DB_PASSWORD: mysecretpassword
+  DB_PASSWORD: password
