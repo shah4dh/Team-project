@@ -1,0 +1,24 @@
+# Default values for backend.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: public.ecr.aws/v2h8l1j0/nc-learners-backend
+  tag: "1.0.0"
+
+# Backend server variables
+server:
+  name: be-server
+  dbHost: project-db.c9g4mw82quix.eu-west-2.rds.amazonaws.com
+  dbName: project
+  dbUser: postgres
+  dbPassword: password
+
+# Backend service variables
+service:
+  name: be-service
+  type: LoadBalancer
+  port: 80
+  targetPort: 8080
