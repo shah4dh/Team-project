@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/johanAurel/ce-team-project.git'
+            }
+        }
+        stage('Build and Deploy') {
+            steps {
+                script {
+                    sh "kubectl apply -f ./kubernetes"
+                }
+            }
+        }
+    }
+}
