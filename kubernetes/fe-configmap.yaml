@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: fe-config
-  labels:
-    app: fe-server-config
-data:
-  # Update with DNS of backend service
-  VITE_API_BASE_URL: a2fe805fbbb6f407d81b49512c2b3e22-960968044.eu-west-2.elb.amazonaws.com
