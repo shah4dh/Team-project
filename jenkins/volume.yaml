@@ -30,7 +30,7 @@ spec:
           operator: In
           values:
           - ip-10-0-1-250.eu-west-2.compute.internal 
----
+---       # ^^ Update this value to your node group
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
