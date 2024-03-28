@@ -18,6 +18,11 @@ variable "engine" {
   default = "postgres"
 }
 
+variable "engine_version" {
+  description = "Version of the database engine"
+  default = 14.11
+}
+
 variable "instance_class" {
   description = "Type of instance to store database on"
   default = "db.t3.micro"
