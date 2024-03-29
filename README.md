@@ -61,3 +61,63 @@ fe-service   LoadBalancer   172.20.214.61   ade14xxx.amazonaws.com   80:30231/TC
 > Note: in this example `EXTERNAL-IP` `ade14ac02cd1149119f3683676b4cc79-1691019730.eu-west-2.elb.amazonaws.com` is abbreviated.
 
 The use `http://ade14ac02cd1149119f3683676b4cc79-1691019730.eu-west-2.elb.amazonaws.com` to access the frontend app.
+
+## Installing Jenkins 
+
+To install Jenkins through kubernetes, follow these simple steps. First head over to the `jenkins` directory and before anything, change the node value inside the `volume.yaml` file.
+
+Next you need to create a namespace callend `devops-tools`
+
+```bash
+kubectl create namespace devops-tools
+```
+
+Then you need to apply the `serivceAccount.yaml` file.
+
+```bash
+kubectl apply -f serviceAccount.yaml
+```
+
+Then you need to create the `volume.yaml` file.
+
+```bash
+kubectl create -f volume.yaml
+```
+
+Then you need to apply the `deployment.yaml` file.
+
+```bash
+kubectl apply -f deployment.yaml
+```
+
+Finally, apply the `service.yaml` file.
+
+```bash
+kubectl apply -f service.yaml 
+```
+
+Now when you have a look at your services, there will be a jenkins-service that is type LoadBalancer with a public dns to access Jenkins on port 8080. For example:
+
+`http://af333cb778e604b3f9730ea4ce1e7814-350983585.eu-west-2.elb.amazonaws.com:8080` will give me acccess to jenkins.
+
+> Note: To have a look at your jenkins-service run `kubectl get services -n devops-tools`
+
+### To log the Password
+
+After accessing Jenkins you will be prompted with the sign in page. The username will be admin and to get the password, follow these steps.
+
+First display the pods to find out what your jenkins deployment is called. 
+
+```bash
+kubectl get pods -n devops-tools
+```
+
+Then you can run this command and it will give you your password and should now be able to log in to Jenkins.
+
+```bash
+kubectl exec -it jenkins-56b6774bb6-8m5t2 cat /var/jenkins_home/secrets/initialAdminPassword -n devops-tools
+```
+
+> Note: You will have to change `jenkins-56b6774bb6-8m5t2` to whatever your deployment is called
+
+You should now successfully have access to get into Jenkins!
