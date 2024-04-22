@@ -2,7 +2,7 @@
 
 The Northcoders development teams have worked on creating a learner management system
 
-![](nclearner.png)
+![](media/images/nclearner.png)
 
 The development teams have been structured by the organisation such that one team has produced the frontend and a separate team have produced the backend.
 
