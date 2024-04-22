@@ -1,14 +1,53 @@
-The steps our team is taking are as follows:
+## Project Scenario
 
--Creating an Infrastructure comprising of a vpc and 3 private and public subnets, an internet gateway a nat gateway and its different security groups.
+The Northcoders development teams have worked on creating a learner management system
 
--Building and applying the backend and front end images and deploying them in their various containers using ECRs.
+![](nclearner.png)
 
--Use Jenkins CI/CD to continuously deploy and integrate the services onto our cluster.
+The development teams have been structured by the organisation such that one team has produced the frontend and a separate team have produced the backend.
 
--Making use of prometheus to monitor our cluster and its constituent services.
+The backend application is configured to talk to a relational database. Currently the backend team have been using an in-memory relational database when testing.
 
--Add an SES in case our tresholds are exceeded.
+### Frontend
+
+#### Technologies
+- Vite
+- React
+- HTML
+- CSS
+
+#### Repository
+
+https://github.com/northcoders/ce-team-project-frontend
+
+### Backend
+
+#### Technologies
+- Java
+- Maven
+- Spring Boot
+- Spring Actuator
+- Spring JDBC for database access
+
+#### Repository
+
+https://github.com/northcoders/ce-team-project-backend
+
+### Objective
+
+Our primary objective, as a team, is to get the applications and supporting services deployed to AWS cloud.
+
+#### The steps our team is taking are as follows:
+
+- Creating an Infrastructure comprising of a VPC, 3 private and public subnets, an internet gateway a NAT gateway and its different security groups.
+
+- Building and applying the backend and frontend images and deploying them in their various containers using ECRs.
+
+- Using Jenkins CI/CD to continuously deploy and integrate the services onto our cluster.
+
+- Making use of prometheus and grafana to monitor our cluster and its constituent services.
+
+- Add an SES in case our tresholds are exceeded.
 
 ## Installing the Helm Charts
 
